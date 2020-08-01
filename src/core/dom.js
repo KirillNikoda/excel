@@ -78,6 +78,12 @@ class Dom {
           this.$el.style[key] = styles[key]
         })
   }
+  getStyles(styles = []) {
+    return styles.reduce((res, s) => {
+      res[s] = this.$el.style[s]
+      return res
+    }, {})
+  }
 
   id(parse) {
     if (parse) {
@@ -97,10 +103,12 @@ class Dom {
 
   addClass(className) {
     this.$el.classList.add(className)
+    return this
   }
 
   removeClass(className) {
     this.$el.classList.remove(className)
+    return this
   }
 }
 
