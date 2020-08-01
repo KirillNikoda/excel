@@ -15,7 +15,7 @@ export function matrix($target, $current) {
   const rows = range(current.row, target.row)
 
   return cols.reduce((acc, col) => {
-    rows.forEach((row) => acc.push(`${row}:${col}`))
+    rows.forEach(row => acc.push(`${row}:${col}`))
     return acc
   }, [])
 }
@@ -38,5 +38,6 @@ export function nextSelector(key, {col, row}) {
       row = row - 1 < MIN_VALUE ? MIN_VALUE : row - 1
       break
   }
+
   return `[data-id="${row}:${col}"]`
 }
